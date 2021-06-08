@@ -1,25 +1,25 @@
 package subtask1
 
-import java.text.SimpleDateFormat
-import java.time.Year
+
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
-//fun main(args: Array<String>) {
+
 class DateFormatter {
 
 
 
     fun toTextDay(day: String, month: String, year: String): String {
         var result = "Такого дня не существует"
-        if (day.toInt() > 31 || month.toInt() > 12) {
-            return result
-        } else {
-            val dateFormat = SimpleDateFormat("d MMMM, EEEE")
-            val calendar: Calendar = GregorianCalendar(year.toInt(), month.toInt() - 1, day.toInt())
-            result = dateFormat.format(calendar.time)
-        }
+        var formatter = DateTimeFormatter.ofPattern("dd MMMM, EEEE")
+    try { result = LocalDate.of(year.toInt(),month.toInt(),day.toInt()).format(formatter.withLocale(
+        Locale.forLanguageTag("Ru")))
 
+    }
+    finally {
         return result
+    }
     }
 }
 
