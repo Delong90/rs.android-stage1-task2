@@ -1,3 +1,4 @@
+
 package subtask1
 
 
@@ -13,13 +14,13 @@ class DateFormatter {
     fun toTextDay(day: String, month: String, year: String): String {
         var result = "Такого дня не существует"
         var formatter = DateTimeFormatter.ofPattern("dd MMMM, EEEE")
-    try { result = LocalDate.of(year.toInt(),month.toInt(),day.toInt()).format(formatter.withLocale(
-        Locale.forLanguageTag("Ru")))
+        try { result = LocalDate.of(year.toInt(),month.toInt(),day.toInt()).format(formatter.withLocale(
+            Locale.forLanguageTag("Ru")))
 
-    }
-    finally {
-        return result
-    }
+        }
+        finally {
+            return result
+        }
     }
 }
 
